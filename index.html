@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimilyappdev — クリエイターの日常を、もっとラクに。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* series colors */
+  --raku:#4682B4;--raku-light:rgba(70,130,180,0.09);
+  --minit:#9FC7D8;--minit-light:rgba(159,199,216,0.15);
+  /* per-app colors */
+  --through:#1E6BE6;
+  --rakunovel:#8B1A3A;
+  --easyreply:#2C4A5E;
+  --rakutto:#FF6B35;
+  --miteorder:#00afcc;
+  --schedulex:#2E3460;
+  --cozypost:#7A5040;
+  --minitstretch:#DDA83E;
+  --smallpump:#A8C060;
+  /* base */
+  --page-bg:#F4F0EA;--panel-bg:#FDFBF9;--border:#EDE8E2;
+  --sub:#B8A090;--text:#2D2420;--text-light:#7A6860;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Zen Maru Gothic',sans-serif;color:var(--text);background:var(--page-bg);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#9FC7D8;border-bottom:1px solid rgba(26,58,82,0.12);height:60px;display:flex;align-items:center;padding:0 clamp(16px,4vw,48px);gap:16px}
+.nav-logo{font-family:'Nunito',sans-serif;font-weight:900;font-size:20px;color:#1A3A52;letter-spacing:-.5px;text-decoration:none;flex-shrink:0}
+.nav-kana{font-size:11px;color:rgba(26,58,82,0.6);font-weight:700;flex-shrink:0}
+.nav-spacer{flex:1}
+.nav-links{display:flex;gap:6px}
+.nav-link{font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;text-decoration:none;transition:.15s;border:1px solid transparent;color:#1A3A52}
+.nav-link.raku{color:#1A3A52}
+.nav-link.raku:hover{background:rgba(26,58,82,0.12)}
+.nav-link.minit{color:rgba(26,58,82,0.7)}
+.nav-link.minit:hover{background:rgba(26,58,82,0.1)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px clamp(16px,5vw,80px) 60px;position:relative;overflow:hidden;gap:56px;background:linear-gradient(to bottom,#DCCFC0 48%,var(--page-bg) 48%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 75% 30%,rgba(70,130,180,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 55% at 15% 72%,rgba(159,199,216,0.05) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-path{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero-deco{position:absolute;right:clamp(20px,6vw,80px);top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-size:clamp(11px,1.3vw,14px);color:rgba(45,36,32,0.07);letter-spacing:.32em;line-height:2;pointer-events:none;user-select:none}
+.hero-inner{flex:1;max-width:540px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,36,32,0.06);border:1px solid rgba(45,36,32,0.12);border-radius:20px;padding:5px 14px 5px 10px;font-size:12px;font-weight:700;color:var(--text-light);margin-bottom:24px}
+.badge-dots{display:flex;gap:4px}
+.bdot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.bdot.r{background:var(--raku);animation:blink 2s ease-in-out infinite}
+.bdot.m{background:var(--minit);animation:blink 2s ease-in-out infinite .5s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(40px,6.5vw,66px);color:var(--text);line-height:1;letter-spacing:-2px;margin-bottom:18px}
+.hero-copy{font-size:clamp(17px,2.6vw,23px);font-weight:700;line-height:1.55;color:var(--text);margin-bottom:10px}
+.hero-copy .r{color:var(--raku)}
+.hero-copy .m{color:var(--minit)}
+.hero-sub{font-size:clamp(13px,1.6vw,15px);color:var(--text-light);line-height:1.9;margin-bottom:40px}
+.hero-series{display:flex;flex-wrap:wrap;gap:12px}
+.series-btn{display:flex;align-items:center;gap:12px;padding:15px 20px;background:var(--panel-bg);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:inherit;transition:.2s}
+.series-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.08)}
+.series-btn.raku:hover{border-color:rgba(26,122,90,0.45)}
+.series-btn.minit:hover{border-color:rgba(107,95,204,0.45)}
+.sdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.sdot.r{background:var(--raku)}
+.sdot.m{background:var(--minit)}
+.s-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;letter-spacing:-.3px;line-height:1;margin-bottom:3px}
+.s-name.r{color:var(--raku)}
+.s-name.m{color:var(--minit)}
+.s-desc{font-size:11px;color:var(--text-light);font-weight:700}
+.s-arr{margin-left:4px;font-size:13px;color:var(--sub)}
+
+/* ── HERO VISUAL ── */
+.hero-visual{display:none;position:relative;flex-shrink:0;z-index:1}
+@media(min-width:880px){.hero-visual{display:block}}
+.vis-wrap{position:relative;width:248px;height:320px}
+.vis-card{position:absolute;width:210px;border-radius:18px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,0.16)}
+.vis-card.vc-raku{background:#4682B4;top:0;left:0;z-index:2;transform:rotate(-3deg)}
+.vis-card.vc-minit{background:#9FC7D8;bottom:0;right:0;z-index:1;transform:rotate(3deg);color:#1A3A52;}
+.vc-label{font-family:'Nunito',sans-serif;font-weight:900;font-size:30px;color:rgba(255,255,255,.92);letter-spacing:-1px;line-height:1;margin-bottom:2px}
+.vc-sub{font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.45);margin-bottom:14px}
+.vc-item{font-size:11px;font-weight:700;color:rgba(255,255,255,.72);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.vc-item:last-child{border-bottom:none}
+.vc-item.dim{opacity:.4}
+
+/* ── SECTIONS ── */
+.sec{padding:96px clamp(16px,5vw,80px)}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.section-label.r{color:var(--raku)}
+.section-label.m{color:var(--minit)}
+.section-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(28px,4.5vw,46px);color:var(--text);line-height:1.15;letter-spacing:-.5px;margin-bottom:12px}
+.section-copy{font-size:clamp(14px,1.7vw,16px);color:var(--text-light);line-height:1.9;margin-bottom:48px;max-width:520px}
+
+/* ── SERIES CARDS ── */
+.series-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;max-width:960px}
+.series-card{background:var(--panel-bg);border-radius:12px;border:1px solid var(--border);display:flex;overflow:hidden;text-decoration:none;color:inherit;transition:.2s}
+.series-card:not(.coming):hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.series-card.coming{opacity:.5;pointer-events:none}
+.series-rect{width:88px;flex-shrink:0;min-height:104px}
+.series-card-body{padding:18px 20px;flex:1}
+.series-card-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;letter-spacing:-.3px;margin-bottom:3px}
+.series-card-kana{font-size:11px;color:var(--sub);font-weight:700;margin-bottom:6px}
+.series-card-desc{font-size:12px;color:var(--text-light);line-height:1.6}
+.coming-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;background:rgba(45,36,32,0.07);color:var(--text-light);margin-top:8px}
+
+/* bg */
+.bg-cream{background:var(--page-bg)}
+.bg-white{background:#FDFBF9}
+
+/* divider */
+.divider{height:1px;background:var(--border);margin:0 clamp(16px,5vw,80px)}
+
+/* ── FOOTER ── */
+footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16px,5vw,80px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Nunito',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:-.5px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-link{font-size:12px;color:var(--text-light);text-decoration:none;transition:.15s}
+.footer-link:hover{color:var(--text)}
+.footer-copy{font-size:12px;color:var(--sub)}
+
+/* ── ANIMATION ── */
+.fade-in{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ── */
+@media(max-width:599px){
+  .hero{flex-direction:column;align-items:flex-start;padding-top:80px;gap:0}
+  .hero-deco{display:none}
+  .apps-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Mimilyappdev</a>
+  <span class="nav-kana">ミミリーアップデベロップ</span>
+  <div class="nav-spacer"></div>
+  <div class="nav-links">
+    <a class="nav-link raku" href="#raku">Raku</a>
+    <a class="nav-link minit" href="#minit">Minit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dots"><span class="bdot r"></span><span class="bdot m"></span></span>
+      Mimilyappdev
+    </div>
+    <h1>Mimily<br>appdev</h1>
+    <p class="hero-copy">
+      <span class="r">クリエイター</span>の悩みも、<br>
+      <span class="m">頑張る心</span>も、やさしく支える。
+    </p>
+    <p class="hero-sub">
+      ふたつのシリーズで、あなたの日常にそっと寄り添います。<br>
+      ラクになれる道具と、肯定される場所を。
+    </p>
+    <div class="hero-series">
+      <a class="series-btn raku" href="#raku">
+        <span class="sdot r"></span>
+        <div>
+          <div class="s-name r">Raku Series</div>
+          <div class="s-desc">やらなきゃ、をもっとラクに</div>
+        </div>
+        <span class="s-arr">→</span>
+      </a>
+      <a class="series-btn minit" href="#minit">
+        <span class="sdot m"></span>
+        <div>
+          <div class="s-name m">Minit Series</div>
+          <div class="s-desc">限界な日にも、少しだけ前へ</div>
+        </div>
+        <span class="s-arr">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="vis-wrap">
+      <div class="vis-card vc-raku">
+        <div class="vc-label">Raku</div>
+        <div class="vc-sub">CREATOR SERIES</div>
+        <div class="vc-item">rakuthrough</div>
+        <div class="vc-item">rakunovel</div>
+        <div class="vc-item">easyreply</div>
+        <div class="vc-item dim">rakutto · coming soon</div>
+      </div>
+      <div class="vis-card vc-minit">
+        <div class="vc-label" style="color:#1A3A52;">Minit</div>
+        <div class="vc-sub" style="color:rgba(26,58,82,0.55);">CARE SERIES</div>
+        <div class="vc-item" style="color:#1A3A52;border-bottom-color:rgba(26,58,82,0.18);">cozypost</div>
+        <div class="vc-item" style="color:#1A3A52;border-bottom:none;">minitstretch</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-deco">クリエイターの悩みをやさしく解決する。頑張るあなたを、肯定する。</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RAKU SERIES -->
+<section id="raku" class="sec bg-cream">
+  <div class="fade-in">
+    <div class="section-label r">Raku Series</div>
+    <h2 class="section-title">やらなきゃ、を<br>もっとラクに。</h2>
+    <p class="section-copy">創作まわりを、軽やかに。</p>
+  </div>
+  <div class="series-grid">
+    <a class="series-card fade-in" href="https://mimilyappdev.github.io/rakuthrough/" target="_blank">
+      <div class="series-rect" style="background:var(--through)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--through)">RakuThrough</p>
+        <p class="series-card-kana">ラクスルー</p>
+        <p class="series-card-desc">確定申告を、少し怖くなく。クリエイター向け帳簿アプリ。</p>
+      </div>
+    </a>
+    <a class="series-card fade-in" href="https://mimilyappdev.github.io/rakunovel/" target="_blank">
+      <div class="series-rect" style="background:var(--rakunovel)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--rakunovel)">RakuNovel</p>
+        <p class="series-card-kana">ラクノーベル</p>
+        <p class="series-card-desc">書くこと以外、ラクにする。自動で縦書きPDFに。</p>
+      </div>
+    </a>
+    <a class="series-card fade-in" href="https://mimilyappdev.github.io/easyreply/" target="_blank">
+      <div class="series-rect" style="background:var(--easyreply)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--easyreply)">EasyReply</p>
+        <p class="series-card-kana">ラクリプ</p>
+        <p class="series-card-desc">「なんて返そう」をラクに。よく使う返信を、すぐ送れる。</p>
+      </div>
+    </a>
+    <a class="series-card fade-in" href="https://github.com/mimilyappdev/shimesuke" target="_blank">
+      <div class="series-rect" style="background:var(--schedulex)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--schedulex)">SchedulEX</p>
+        <p class="series-card-kana">〆スケ</p>
+        <p class="series-card-desc">「いつまでだっけ？」をなくす。依頼管理＆〆切スケジュールツール。</p>
+      </div>
+    </a>
+    <a class="series-card fade-in" href="https://mimilyappdev.github.io/rakutto/" target="_blank">
+      <div class="series-rect" style="background:var(--rakutto)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--rakutto)">Rakutto!</p>
+        <p class="series-card-kana">らくっと！</p>
+        <p class="series-card-desc">在庫管理も、レジも、まとめてラクに。即売会向けアプリ。</p>
+      </div>
+    </a>
+    <div class="series-card coming fade-in">
+      <div class="series-rect" style="background:var(--miteorder)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--miteorder)">MiteOrder</p>
+        <p class="series-card-kana">ミテオーダー</p>
+        <p class="series-card-desc">作品を見て、依頼もできる。ポートフォリオ＋料金表＋見積アプリ。</p>
+        <span class="coming-badge">制作中</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="minit" class="sec bg-white">
+  <div class="fade-in">
+    <div class="section-label m">Minit Series</div>
+    <h2 class="section-title">頑張るあなたを、<br>肯定する。</h2>
+    <p class="section-copy">限界な日にも、少しだけ前へ進めたい人へ。</p>
+  </div>
+  <div class="series-grid">
+    <a class="series-card fade-in" href="https://mimitday.github.io/cozypost/" target="_blank">
+      <div class="series-rect" style="background:var(--cozypost)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--cozypost)">CozyPost</p>
+        <p class="series-card-kana">コージーポスト</p>
+        <p class="series-card-desc">気を張らず、思いついたことを。思考を、そっと置いておける場所。</p>
+      </div>
+    </a>
+    <a class="series-card fade-in" href="https://mimitday.github.io/minitstretch/" target="_blank">
+      <div class="series-rect" style="background:var(--minitstretch)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--minitstretch)">MinitStretch</p>
+        <p class="series-card-kana">ミニっとストレッチ</p>
+        <p class="series-card-desc">限界な日。それでも少し、体と脳をほぐす。</p>
+      </div>
+    </a>
+    <div class="series-card coming fade-in">
+      <div class="series-rect" style="background:var(--smallpump)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--smallpump)">SmallPump</p>
+        <p class="series-card-kana">スモールパンプ</p>
+        <p class="series-card-desc">限界の日でも、ちょっとでもやった気になる筋トレ。</p>
+        <span class="coming-badge">デプロイ前</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Mimilyappdev</span>
+  <div class="footer-links">
+    <a href="./legal/privacy.html" class="footer-link">プライバシーポリシー</a>
+    <a href="./legal/terms.html" class="footer-link">利用規約</a>
+    <a href="https://forms.gle/JmaTubGR56G9V8S89" target="_blank" rel="noopener" class="footer-link">お問い合わせ</a>
+    <a href="https://x.com/mimilydesign" target="_blank" rel="noopener" class="footer-link">@mimilydesign</a>
+  </div>
+  <span class="footer-copy">© 2026 Mimilyappdev</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: .12 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

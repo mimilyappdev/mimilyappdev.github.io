@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 — Mimilyappdev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F4F0EA;
+    --surface:   #FFFFFF;
+    --ink:       #2D2420;
+    --muted:     #7A6860;
+    --slate:     #4682B4;
+    --slate-lt:  rgba(70,130,180,0.08);
+    --gold:      #C8943A;
+    --border:    #EDE8E2;
+    --border-dk: #C0B8AE;
+    --white:     #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background: var(--bg); color: var(--ink);
+    line-height: 1.9; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--border); transition: color 0.15s; }
+  a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  header {
+    background: #9FC7D8;
+    border-bottom: 1px solid rgba(26,58,82,0.12);
+    padding: 0 48px; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .hd-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 20px; color: #1A3A52; text-decoration: none; border: none; letter-spacing: -.5px; }
+  .hd-kana { font-size: 11px; color: rgba(26,58,82,0.6); margin-left: 6px; font-weight: 700; }
+  .hd-right { font-size: 12px; color: rgba(26,58,82,0.7); }
+
+  .page-hero { background: var(--slate); padding: 56px 48px; text-align: center; }
+  .page-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); margin-bottom: 12px; text-transform: uppercase; }
+  .page-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 36px; color: var(--white); margin-bottom: 12px; }
+  .page-updated { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  .content-wrap {
+    max-width: 680px; margin: 0 auto;
+    padding: 72px 48px 96px;
+    display: flex; flex-direction: column; gap: 40px;
+  }
+
+  .sec h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px; color: var(--slate);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec p { font-size: 14px; color: var(--ink); }
+  .sec p + p { margin-top: 10px; }
+  .sec ul {
+    margin-top: 10px; padding-left: 0;
+    list-style: none; display: flex; flex-direction: column; gap: 6px;
+  }
+  .sec ul li {
+    font-size: 14px; color: var(--ink);
+    padding-left: 14px; position: relative;
+  }
+  .sec ul li::before {
+    content: '–'; position: absolute; left: 0;
+    color: var(--gold);
+  }
+  .note {
+    font-size: 13px; color: var(--muted);
+    background: var(--slate-lt); border-radius: 8px;
+    padding: 12px 16px; margin-top: 12px;
+    border-left: 3px solid var(--slate);
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg); gap: 24px; flex-wrap: wrap;
+  }
+  .ft-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 18px; color: var(--ink); letter-spacing: -.5px; }
+  .ft-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .ft-link { font-size: 12px; color: var(--muted); border-bottom: none; }
+  .ft-link:hover { color: var(--slate); }
+  .ft-copy { font-size: 11px; color: var(--border-dk); }
+
+  @media (max-width: 720px) {
+    header { padding: 0 20px; }
+    .page-hero { padding: 48px 20px; }
+    .page-title { font-size: 28px; }
+    .content-wrap { padding: 48px 20px 72px; }
+    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <a href="https://mimilyappdev.github.io/" class="hd-logo">Mimilyappdev</a>
+    <span class="hd-kana">ミミリーアップデベロップ</span>
+  </div>
+  <div class="hd-right">利用規約</div>
+</header>
+
+<div class="page-hero">
+  <p class="page-label">Legal</p>
+  <h1 class="page-title">利用規約</h1>
+  <p class="page-updated">最終更新日：2026年5月</p>
+</div>
+
+<div class="content-wrap">
+
+  <div class="sec">
+    <h2>第1条（本規約について）</h2>
+    <p>Mimilyappdev（以下「当サービス」）が提供するアプリおよびウェブサービス（以下「本サービス」）をご利用いただく方は、本利用規約に同意したものとみなします。</p>
+  </div>
+
+  <div class="sec">
+    <h2>第2条（利用環境）</h2>
+    <p>本サービスの利用には、インターネット接続および対応ブラウザが必要です。利用環境の整備はご自身の責任で行ってください。</p>
+    <p class="note">本サービスの一部はPWA（Progressive Web App）として提供されています。オフライン機能の範囲はアプリによって異なります。</p>
+  </div>
+
+  <div class="sec">
+    <h2>第3条（禁止事項）</h2>
+    <p>以下の行為を禁止します。</p>
+    <ul>
+      <li>法令または公序良俗に違反する行為</li>
+      <li>当サービスへの不正アクセス、またはサーバーに過度な負荷をかける行為</li>
+      <li>当サービスのコンテンツの無断転載・再配布・商業利用</li>
+      <li>他者への迷惑行為、または当サービスの運営を妨げる行為</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>第4条（免責事項）</h2>
+    <p>当サービスは現状有姿で提供されており、内容の正確性・完全性・継続性を保証しません。本サービスの利用によって生じた損害について、当サービスは一切の責任を負いません。</p>
+    <p>ストレッチ・運動に関するコンテンツは情報提供を目的としており、医療目的ではありません。身体に痛みや違和感がある場合は使用を中止し、医師にご相談ください。</p>
+  </div>
+
+  <div class="sec">
+    <h2>第5条（サービスの変更・終了）</h2>
+    <p>当サービスは、予告なく内容の変更・機能の追加・停止・終了を行うことがあります。これによって生じた損害について責任を負いません。</p>
+  </div>
+
+  <div class="sec">
+    <h2>第6条（著作権）</h2>
+    <p>本サービス上のコンテンツ（テキスト・デザイン・コード・イラスト等）の著作権は Mimilyappdev 運営者に帰属します。無断での複製・転用はお断りします。</p>
+  </div>
+
+  <div class="sec">
+    <h2>第7条（規約の変更）</h2>
+    <p>本規約は必要に応じて改定することがあります。改定後の内容は当ページへの掲載をもって効力を生じます。重要な変更がある場合は X（@mimilydesign）でお知らせします。</p>
+  </div>
+
+  <div class="sec">
+    <h2>第8条（お問い合わせ）</h2>
+    <p>本規約に関するご質問は、以下からどうぞ。</p>
+    <ul>
+      <li>お問い合わせフォーム：<a href="https://forms.gle/JmaTubGR56G9V8S89" target="_blank" rel="noopener">こちら</a></li>
+      <li>X（旧Twitter）：<a href="https://x.com/mimilydesign" target="_blank" rel="noopener">@mimilydesign</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <span class="ft-logo">Mimilyappdev</span>
+  </div>
+  <div class="ft-links">
+    <a href="./privacy.html" class="ft-link">プライバシーポリシー</a>
+    <a href="./terms.html" class="ft-link" style="color:var(--slate);">利用規約</a>
+    <a href="https://forms.gle/JmaTubGR56G9V8S89" target="_blank" rel="noopener" class="ft-link">お問い合わせ</a>
+    <a href="https://mimilyappdev.github.io/" class="ft-link">アプリ一覧</a>
+  </div>
+  <p class="ft-copy">© 2026 Mimilyappdev</p>
+</footer>
+
+</body>
+</html>
