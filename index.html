@@ -36,10 +36,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#9FC7D8;border-bo
 .nav-spacer{flex:1}
 .nav-links{display:flex;gap:6px}
 .nav-link{font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;text-decoration:none;transition:.15s;border:1px solid transparent;color:#1A3A52}
-.nav-link.raku{color:#1A3A52}
-.nav-link.raku:hover{background:rgba(26,58,82,0.12)}
-.nav-link.minit{color:rgba(26,58,82,0.7)}
-.nav-link.minit:hover{background:rgba(26,58,82,0.1)}
+.nav-link.raku{color:#fff;background:var(--raku);border-color:transparent}
+.nav-link.raku:hover{background:#3a70a4}
+.nav-link.minit{color:#6fa8c0;background:#fff;border-color:rgba(159,199,216,0.5)}
+.nav-link.minit:hover{background:#f0f8fb}
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;padding:100px clamp(16px,5vw,80px) 60px;position:relative;overflow:hidden;gap:56px;background:linear-gradient(to bottom,#DCCFC0 48%,var(--page-bg) 48%)}
@@ -126,6 +126,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
 
 /* ── MOBILE ── */
 @media(max-width:599px){
+  .nav-kana{display:none}
   .hero{flex-direction:column;align-items:flex-start;padding-top:80px;gap:0}
   .hero-deco{display:none}
   .apps-grid{grid-template-columns:1fr}
@@ -277,7 +278,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
       <div class="series-card-body">
         <p class="series-card-name" style="color:var(--cozypost)">CozyPost</p>
         <p class="series-card-kana">コージーポスト</p>
-        <p class="series-card-desc">色々な考えが頭の中でぐるぐるしている時、すぐにそっと置いておけるアプリ。</p>
+        <p class="series-card-desc">考えで頭の中がいっぱいのとき。あなたの思考をそっと置いておけるやさしいアプリ。</p>
       </div>
     </a>
     <a class="series-card fade-in" href="https://mimitday.github.io/minitstretch/" target="_blank">
@@ -285,7 +286,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
       <div class="series-card-body">
         <p class="series-card-name" style="color:var(--minitstretch)">MinitStretch</p>
         <p class="series-card-kana">ミニっとストレッチ</p>
-        <p class="series-card-desc">限界な日。それでも少し、体と脳をほぐす。</p>
+        <p class="series-card-desc">限界な日。それでも少し、身体と脳をストレッチ。優しい肯定をあなたに。</p>
       </div>
     </a>
     <a class="series-card fade-in" href="https://mimitday.github.io/smallpump/" target="_blank">
