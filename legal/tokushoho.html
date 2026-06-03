@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表記 — Mimilyappdev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F4F0EA;
+    --surface:   #FFFFFF;
+    --ink:       #2D2420;
+    --muted:     #7A6860;
+    --slate:     #4682B4;
+    --slate-lt:  rgba(70,130,180,0.08);
+    --gold:      #C8943A;
+    --border:    #EDE8E2;
+    --border-dk: #C0B8AE;
+    --white:     #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background: var(--bg); color: var(--ink);
+    line-height: 1.9; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--border); transition: color 0.15s; }
+  a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  header {
+    background: #9FC7D8;
+    border-bottom: 1px solid rgba(26,58,82,0.12);
+    padding: 0 48px; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .hd-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 20px; color: #1A3A52; text-decoration: none; border: none; letter-spacing: -.5px; }
+  .hd-kana { font-size: 11px; color: rgba(26,58,82,0.6); margin-left: 6px; font-weight: 700; }
+  .hd-right { font-size: 12px; color: rgba(26,58,82,0.7); }
+
+  .page-hero { background: var(--slate); padding: 56px 48px; text-align: center; }
+  .page-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); margin-bottom: 12px; text-transform: uppercase; }
+  .page-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 36px; color: var(--white); margin-bottom: 12px; }
+  .page-updated { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  .content-wrap {
+    max-width: 680px; margin: 0 auto;
+    padding: 72px 48px 96px;
+    display: flex; flex-direction: column; gap: 56px;
+  }
+
+  .sec-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px; color: var(--slate);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  table tr { border-bottom: 1px solid var(--border); }
+  table th {
+    width: 180px; padding: 16px 14px;
+    text-align: left; vertical-align: top;
+    color: var(--muted); font-weight: 700;
+    white-space: nowrap;
+  }
+  table td { padding: 16px 14px; color: var(--ink); vertical-align: top; }
+
+  .app-badge {
+    display: inline-block;
+    background: var(--slate-lt);
+    color: var(--slate);
+    font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 50px;
+    margin-bottom: 14px;
+    letter-spacing: .04em;
+  }
+
+  .note {
+    font-size: 13px; color: var(--muted);
+    background: var(--slate-lt); border-radius: 8px;
+    padding: 12px 16px; margin-top: 8px;
+    border-left: 3px solid var(--slate);
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg); gap: 24px; flex-wrap: wrap;
+  }
+  .ft-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 18px; color: var(--ink); letter-spacing: -.5px; }
+  .ft-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .ft-link { font-size: 12px; color: var(--muted); border-bottom: none; }
+  .ft-link:hover { color: var(--slate); }
+  .ft-copy { font-size: 11px; color: var(--border-dk); }
+
+  @media (max-width: 720px) {
+    header { padding: 0 20px; }
+    .page-hero { padding: 48px 20px; }
+    .page-title { font-size: 28px; }
+    .content-wrap { padding: 48px 20px 72px; }
+    table th { width: 110px; white-space: normal; }
+    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <a href="https://mimilyappdev.github.io/" class="hd-logo">Mimilyappdev</a>
+    <span class="hd-kana">ミミリーアップデベロップ</span>
+  </div>
+  <div class="hd-right">特定商取引法に基づく表記</div>
+</header>
+
+<div class="page-hero">
+  <p class="page-label">Legal</p>
+  <h1 class="page-title">特定商取引法に基づく表記</h1>
+  <p class="page-updated">最終更新日：2026年6月</p>
+</div>
+
+<div class="content-wrap">
+
+  <!-- 共通情報 -->
+  <div>
+    <h2 class="sec-title">販売業者・共通情報</h2>
+    <table>
+      <tr>
+        <th>販売業者</th>
+        <td>Mimily（アイウィル）</td>
+      </tr>
+      <tr>
+        <th>運営責任者</th>
+        <td>請求があった場合に遅滞なく開示します</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>請求があった場合に遅滞なく開示します</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>請求があった場合に遅滞なく開示します</td>
+      </tr>
+      <tr>
+        <th>お問い合わせ</th>
+        <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSfRH7H6j4ILYkjOFriAHmpOzxJwag1VeHU6KYD1pq2kfwvjEA/viewform" target="_blank" rel="noopener">お問い合わせフォーム</a></td>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td>クレジットカード（Stripe決済）</td>
+      </tr>
+    </table>
+    <p class="note">住所・氏名・電話番号の開示請求は、お問い合わせフォームよりお申し込みください。正当な理由がある場合、遅滞なく開示いたします。</p>
+  </div>
+
+  <!-- RakuThrough -->
+  <div>
+    <h2 class="sec-title">RakuThrough（ラクスルー）</h2>
+    <span class="app-badge">収支管理・確定申告サポートアプリ</span>
+    <table>
+      <tr>
+        <th>販売価格</th>
+        <td>
+          月額プラン：¥550／月（税込）<br>
+          年額プラン：¥3,980／年（税込）<br>
+          買い切りプラン：¥5,500（税込・1回限り）
+        </td>
+      </tr>
+      <tr>
+        <th>追加手数料</th>
+        <td>なし（表示価格のみ）</td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>ご注文時に即時決済。月額・年額プランは各更新日に自動引き落とし。</td>
+      </tr>
+      <tr>
+        <th>提供時期</th>
+        <td>決済完了後、即時ご利用いただけます。</td>
+      </tr>
+      <tr>
+        <th>返品・キャンセル</th>
+        <td>デジタルコンテンツの性質上、決済完了後の返金は原則お受けできません。月額・年額プランは次回更新日前にいつでも解約できます。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- RakuNovel -->
+  <div>
+    <h2 class="sec-title">RakuNovel（ラクノーベル）</h2>
+    <span class="app-badge">同人誌・小説PDF入稿サポートアプリ</span>
+    <table>
+      <tr>
+        <th>販売価格</th>
+        <td>
+          期間限定プラン：¥550（税込・1回限り）<br>
+          RakuNovelロゴ割り：¥770（税込・1回限り・奥付にロゴ掲載）<br>
+          通常プラン：¥1,100（税込・1回限り）
+        </td>
+      </tr>
+      <tr>
+        <th>追加手数料</th>
+        <td>なし（表示価格のみ）</td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>ご注文時に即時決済。</td>
+      </tr>
+      <tr>
+        <th>提供時期</th>
+        <td>決済完了後、即時ご利用いただけます。</td>
+      </tr>
+      <tr>
+        <th>返品・キャンセル</th>
+        <td>デジタルコンテンツの性質上、決済完了後の返金はお受けできません。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 〆スケ -->
+  <div>
+    <h2 class="sec-title">〆スケ（SchedulEX）</h2>
+    <span class="app-badge">デッドライン・締切管理ツール</span>
+    <table>
+      <tr>
+        <th>販売価格</th>
+        <td>
+          月額プラン：¥380／月（税込）<br>
+          年額プラン：¥3,780／年（税込）
+        </td>
+      </tr>
+      <tr>
+        <th>追加手数料</th>
+        <td>なし（表示価格のみ）</td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>ご注文時に即時決済。各更新日に自動引き落とし。</td>
+      </tr>
+      <tr>
+        <th>提供時期</th>
+        <td>決済完了後、即時ご利用いただけます。</td>
+      </tr>
+      <tr>
+        <th>返品・キャンセル</th>
+        <td>デジタルコンテンツの性質上、決済完了後の返金は原則お受けできません。次回更新日前にいつでも解約できます。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Rakutto -->
+  <div>
+    <h2 class="sec-title">Rakutto（ラクット）</h2>
+    <span class="app-badge">同人・ハンドメイド向け在庫・レジアプリ</span>
+    <table>
+      <tr>
+        <th>販売価格</th>
+        <td>
+          お試しプラン：¥780（税込・1回限り）<br>
+          月額プラン：¥550／月（税込）<br>
+          年間プラン：¥3,980／年（税込）
+        </td>
+      </tr>
+      <tr>
+        <th>追加手数料</th>
+        <td>なし（表示価格のみ）</td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>ご注文時に即時決済。月額・年間プランは各更新日に自動引き落とし。</td>
+      </tr>
+      <tr>
+        <th>提供時期</th>
+        <td>決済完了後、即時ご利用いただけます。</td>
+      </tr>
+      <tr>
+        <th>返品・キャンセル</th>
+        <td>デジタルコンテンツの性質上、決済完了後の返金は原則お受けできません。月額・年間プランは次回更新日前にいつでも解約できます。</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <span class="ft-logo">Mimilyappdev</span>
+  </div>
+  <div class="ft-links">
+    <a href="./privacy.html" class="ft-link">プライバシーポリシー</a>
+    <a href="./terms.html" class="ft-link">利用規約</a>
+    <a href="./tokushoho.html" class="ft-link" style="color:var(--slate);">特定商取引法</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRH7H6j4ILYkjOFriAHmpOzxJwag1VeHU6KYD1pq2kfwvjEA/viewform" target="_blank" rel="noopener" class="ft-link">お問い合わせ</a>
+    <a href="https://mimilyappdev.github.io/" class="ft-link">アプリ一覧</a>
+  </div>
+  <p class="ft-copy">© 2026 Mimilyappdev</p>
+</footer>
+
+</body>
+</html>
