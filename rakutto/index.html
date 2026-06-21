@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakutto! — 在庫管理も、レジも、これひとつ。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --theme:#e85d04;
+  --theme-grad:linear-gradient(135deg,#ff6b35,#e85d04);
+  --bg:#fff7f3;
+  --text:#111827;
+  --sub:#6b7280;
+}
+body{
+  font-family:'Zen Maru Gothic',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:40px 24px;
+  text-align:center;
+}
+
+/* ── バッジ ── */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff1ec;border:1.5px solid #fb923c;
+  border-radius:99px;padding:5px 14px;
+  font-size:12px;font-weight:700;color:var(--theme);
+  margin-bottom:32px;
+}
+.badge-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--theme);
+  animation:pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── ロゴ ── */
+.logo-icon{
+  width:72px;height:72px;
+  background:var(--theme-grad);
+  border-radius:20px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  box-shadow:0 8px 24px rgba(232,93,4,0.3);
+}
+.logo-text{
+  font-family:'Nunito',sans-serif;font-weight:900;font-size:40px;
+  background:var(--theme-grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-1px;margin-bottom:4px;
+}
+.logo-kana{
+  font-size:13px;color:var(--sub);font-weight:700;
+  letter-spacing:.15em;margin-bottom:28px;
+}
+
+/* ── キャッチ ── */
+.headline{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:clamp(22px,5vw,34px);
+  color:var(--text);line-height:1.3;margin-bottom:14px;
+}
+.sub{
+  font-size:15px;color:var(--sub);line-height:1.8;
+  max-width:400px;margin:0 auto 36px;
+}
+
+/* ── 機能チップ ── */
+.chips{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  margin-bottom:48px;
+}
+.chip{
+  background:#fff;border:1.5px solid #fde8d8;
+  border-radius:99px;padding:6px 16px;
+  font-size:13px;font-weight:700;color:#c2410c;
+}
+
+/* ── 開発中メッセージ ── */
+.dev-box{
+  background:#fff;border:2px solid #fde8d8;border-radius:20px;
+  padding:28px 32px;max-width:380px;width:100%;margin:0 auto 32px;
+  box-shadow:0 4px 20px rgba(232,93,4,0.08);
+}
+.dev-title{
+  font-size:17px;font-weight:900;color:var(--text);margin-bottom:8px;
+}
+.dev-desc{
+  font-size:13px;color:var(--sub);line-height:1.7;
+}
+
+/* ── フッター ── */
+.footer{font-size:12px;color:#d1d5db;margin-top:auto;padding-top:40px;}
+.footer a{color:#9ca3af;text-decoration:none;font-weight:700;}
+.footer a:hover{color:var(--theme);}
+</style>
+</head>
+<body>
+
+  <span class="badge">
+    <span class="badge-dot"></span>
+    現在開発中です
+  </span>
+
+  <div class="logo-icon">
+    <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+      <path d="M4 7h2.5l2.5 10h14l2-8H9" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="11" cy="22" r="2" fill="white"/>
+      <circle cx="21" cy="22" r="2" fill="white"/>
+    </svg>
+  </div>
+
+  <div class="logo-text">Rakutto!</div>
+  <div class="logo-kana">らくっと！</div>
+
+  <h1 class="headline">在庫管理も、レジも、<br>これひとつ。</h1>
+  <p class="sub">
+    即売会・フェス・ハンドメイドマーケットに使える<br>
+    販売イベント向けレジアプリ。<br>
+    Googleログインだけで始められます。
+  </p>
+
+  <div class="chips">
+    <span class="chip">🛒 タップでレジ</span>
+    <span class="chip">📱 子機連携</span>
+    <span class="chip">📦 在庫管理</span>
+    <span class="chip">📊 売上レポート</span>
+    <span class="chip">✈️ オフライン対応</span>
+  </div>
+
+  <div class="dev-box">
+    <div class="dev-title">🚧 鋭意開発中！</div>
+    <div class="dev-desc">
+      現在テスト中のため、一般公開まで<br>
+      もうしばらくお待ちください。<br>
+      公開時にお知らせします。
+    </div>
+  </div>
+
+  <footer class="footer">
+    <a href="https://mimilyappdev.github.io/">Mimilyアプリ一覧</a>
+    　·
+    <a href="https://mimilyappdev.github.io/legal/privacy.html">プライバシーポリシー</a>
+    <br><br>
+    © 2026 Rakutto! by Mimily / アイウィル
+  </footer>
+
+</body>
+</html>
