@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Private — Mimilyappdev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F4F0EA;
+    --surface:   #FFFFFF;
+    --ink:       #2D2420;
+    --muted:     #7A6860;
+    --slate:     #4682B4;
+    --border:    #EDE8E2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background: var(--bg); color: var(--ink);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 360px;
+    width: 100%;
+  }
+  h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -.3px;
+    margin-bottom: 20px;
+  }
+  .app-list { display: flex; flex-direction: column; gap: 10px; }
+  .app-link {
+    display: block;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: .15s;
+  }
+  .app-link:hover { border-color: var(--slate); }
+  .app-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 15px; color: var(--slate); }
+  .app-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .app-link.disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Private Apps</h1>
+  <div class="app-list">
+    <a class="app-link" href="https://rakupost.vercel.app" target="_blank" rel="noopener">
+      <div class="app-name">RakuPost</div>
+      <div class="app-note">SNS半自動支援アプリ</div>
+    </a>
+    <a class="app-link" href="https://rakutrip.vercel.app" target="_blank" rel="noopener">
+      <div class="app-name">RakuTrip</div>
+      <div class="app-note">旅行準備Webアプリ</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
