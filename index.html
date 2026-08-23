@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- Mimily analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y1QD7RYSJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7Y1QD7RYSJ', { site_id: 'mimily_portal' });
+  </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-adsense-account" content="ca-pub-4201053587019455">
@@ -383,6 +391,16 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: .12 });
 document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+document.addEventListener('click', function(event) {
+  const card = event.target.closest('a.series-card');
+  if (!card) return;
+  const name = card.querySelector('.series-card-name');
+  gtag('event', 'portal_app_click', {
+    app_name: name ? name.textContent.trim() : 'unknown',
+    link_url: card.href
+  });
+});
 </script>
 </body>
 </html>
