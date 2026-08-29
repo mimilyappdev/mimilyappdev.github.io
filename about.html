@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Mimily analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y1QD7RYSJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7Y1QD7RYSJ', { site_id: 'mimily_portal_about' });
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-4201053587019455">
+  <meta name="description" content="MimilyAppDevが、創作や日々の負担を少し軽くするブラウザアプリをひとりで作っている理由と、Raku・Minitシリーズについて紹介します。">
+  <title>MimilyAppDevとは？ — ひとりで作る、小さなブラウザアプリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --raku:#4682B4;--minit:#9FC7D8;--page-bg:#F4F0EA;--panel-bg:#FDFBF9;
+      --border:#EDE8E2;--sub:#B8A090;--text:#2D2420;--text-light:#7A6860;
+      --through:#1E6BE6;--rakunovel:#8B1A3A;--easyreply:#2C4A5E;--schedulex:#2E3460;
+      --kouseieasy:#C0504D;--ekayell:#3d8b5f;--kisyotenketool:#6C4AB6;
+      --rakunovelcover:#A61C28;--rakutto:#FF6B35;--cozypost:#7A5040;
+      --minitstretch:#B7831D;--smallpump:#718238;--minitcare:#8068B3;--stylishdiet:#1A1A1A;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Zen Maru Gothic',sans-serif;color:var(--text);background:var(--page-bg);line-height:1.9}
+    nav{position:sticky;top:0;z-index:100;background:#9FC7D8;border-bottom:1px solid rgba(26,58,82,.12);height:60px;display:flex;align-items:center;padding:0 clamp(16px,4vw,48px);gap:16px}
+    .nav-logo{font-family:'Nunito',sans-serif;font-weight:900;font-size:20px;color:#1A3A52;text-decoration:none;letter-spacing:-.5px}
+    .nav-kana{font-size:11px;color:rgba(26,58,82,.6);font-weight:700}
+    .nav-spacer{flex:1}
+    .nav-back{font-size:12px;font-weight:700;color:#1A3A52;text-decoration:none;border:1px solid rgba(26,58,82,.24);border-radius:20px;padding:6px 14px;transition:.15s}
+    .nav-back:hover{background:rgba(255,255,255,.35)}
+    .hero{background:#DCCFC0;padding:88px clamp(18px,6vw,96px) 76px}
+    .hero-inner{max-width:860px;margin:0 auto}
+    .eyebrow{font-family:'Nunito',sans-serif;font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--raku);margin-bottom:16px}
+    h1{font-family:'Shippori Mincho',serif;font-size:clamp(34px,6vw,58px);line-height:1.35;letter-spacing:.02em;margin-bottom:24px}
+    .hero-lead{max-width:680px;font-size:clamp(15px,2vw,18px);color:#584b45;line-height:2}
+    main{max-width:900px;margin:0 auto;padding:72px 20px 96px}
+    .section{margin-bottom:72px}
+    .section-label{font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--raku);margin-bottom:10px}
+    h2{font-family:'Shippori Mincho',serif;font-size:clamp(25px,4vw,36px);line-height:1.45;margin-bottom:22px}
+    .section p{color:var(--text-light);margin-bottom:18px;max-width:760px}
+    .thought{background:var(--panel-bg);border:1px solid var(--border);border-left:5px solid var(--raku);border-radius:14px;padding:26px clamp(20px,4vw,34px);margin:28px 0;color:#584b45}
+    .series-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+    .series-card{background:var(--panel-bg);border:1px solid var(--border);border-radius:16px;padding:28px}
+    .series-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:26px;line-height:1;margin-bottom:12px}
+    .series-card.raku .series-name{color:var(--raku)}
+    .series-card.minit .series-name{color:#6fa8c0}
+    .series-card p{font-size:14px;margin:0;color:var(--text-light)}
+    .tool-group{margin-top:34px}
+    .tool-group-title{font-family:'Nunito',sans-serif;font-size:21px;font-weight:900;margin-bottom:14px;color:var(--raku)}
+    .tool-group.minit .tool-group-title{color:#6fa8c0}
+    .tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .tool-card{display:flex;flex-direction:column;background:var(--panel-bg);border:1px solid var(--border);border-radius:14px;padding:23px 24px}
+    .tool-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:19px;line-height:1.3}
+    .tool-kana{font-size:11px;color:var(--sub);font-weight:700;margin:2px 0 13px}
+    .tool-purpose{font-weight:700;font-size:14px;line-height:1.7;margin-bottom:8px}
+    .tool-card .tool-detail{font-size:13px;color:var(--text-light);line-height:1.8;margin:0 0 18px;max-width:none}
+    .tool-cta{align-self:flex-start;margin-top:auto;color:var(--raku);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(70,130,180,.35)}
+    .tool-cta:hover{color:#315f86;border-bottom-color:#315f86}
+    .coming-note{font-size:12px;color:var(--text-light);margin-top:16px}
+    .privacy-list{display:grid;gap:12px;margin-top:24px}
+    .privacy-item{background:rgba(255,255,255,.55);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+    .privacy-item strong{display:block;margin-bottom:4px}
+    .privacy-item span{font-size:13px;color:var(--text-light)}
+    .closing{background:#DCCFC0;border-radius:18px;padding:36px clamp(24px,5vw,48px)}
+    .closing h2{margin-bottom:14px}
+    .closing p{color:#584b45;margin-bottom:22px}
+    .button{display:inline-flex;align-items:center;background:var(--raku);color:#fff;text-decoration:none;font-weight:700;font-size:13px;border-radius:22px;padding:10px 18px}
+    .button:hover{background:#3a70a4}
+    footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16px,5vw,80px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-family:'Nunito',sans-serif;font-weight:900;font-size:18px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer-link{font-size:12px;color:var(--text-light);text-decoration:none}
+    .footer-link:hover{color:var(--text)}
+    .footer-copy{font-size:12px;color:var(--sub)}
+    @media(max-width:640px){
+      .nav-kana{display:none}.series-grid,.tool-grid{grid-template-columns:1fr}.hero{padding-top:64px}
+      main{padding-top:52px}.section{margin-bottom:58px}footer{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="./index.html">MimilyAppDev</a>
+    <span class="nav-kana">ミミリーアップデベロップ</span>
+    <div class="nav-spacer"></div>
+    <a class="nav-back" href="./index.html">ツール一覧へ戻る</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">ABOUT MIMILYAPPDEV</p>
+      <h1>MimilyAppDevとは？</h1>
+      <p class="hero-lead">創作をするときも、毎日を過ごすときも、「やらなきゃ」は次々に増えていきます。MimilyAppDevは、その負担をほんの少し軽くするための小さなブラウザアプリを、ひとりで企画し、作り、育てている場所です。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <p class="section-label">WHY I MAKE</p>
+      <h2>「やりたい」が、作業の多さで消えないように。</h2>
+      <p>小説を書きたいのに、表現の重なりが気になる。作品を届けたいのに、原稿の整形やPDFづくりで止まってしまう。依頼を受けたいのに、締切や進捗を整理するだけで疲れてしまう。やりたいことの周りには、細かな作業がたくさんあります。</p>
+      <p>MimilyAppDevが作っているのは、創作そのものを代わりに行う道具ではありません。書くこと、描くこと、届けることに集中できるように、その手前や途中にある負担を減らす道具です。</p>
+      <div class="thought">開いた瞬間に、何をすればいいかがわかること。説明をたくさん読まなくても、まず触って試せること。必要なときにすぐ使えて、用事が済んだらすぐ閉じられることを大切にしています。</div>
+      <p><a class="tool-cta" href="./guides/">創作支援ガイドを読む →</a></p>
+    </section>
+
+    <section class="section">
+      <p class="section-label">TWO SERIES</p>
+      <h2>目的の違う、ふたつのシリーズ。</h2>
+      <p>作業をラクにする道具と、限界な日にも少しだけ動き出すための道具。目的を混ぜず、それぞれに合った使い心地を考えています。</p>
+      <div class="series-grid">
+        <article class="series-card raku">
+          <h3 class="series-name">Raku</h3>
+          <p>創作、依頼、締切、会計など、「やらなきゃ」を少ない手順で進めるためのシリーズです。操作に迷う時間を減らし、作りたいものへ戻れることを目指します。</p>
+        </article>
+        <article class="series-card minit">
+          <h3 class="series-name">Minit</h3>
+          <p>疲れている日や、気持ちが動かない日にも使える小さなシリーズです。完璧にできなくても、少しやれたことを否定しない設計を目指します。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-label">FIND YOUR TOOL</p>
+      <h2>困っているところから、道具を選べます。</h2>
+      <p>すべてをひとつの大きなアプリへ詰め込まず、ひとつの悩みにひとつの道具を基本にしています。「いま何に困っているか」から、必要なものだけを選んでください。</p>
+
+      <div class="tool-group">
+        <h3 class="tool-group-title">Raku Series</h3>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--ekayell)">EkaYell!</h3>
+            <div class="tool-kana">イーカエール</div>
+            <div class="tool-purpose">同じ言葉や表現が続いて、文章が単調に感じるときに。</div>
+            <p class="tool-detail">単語を入力すると、小説で使える言い換えの候補を探せます。感情表現は「ことば・からだ・しぐさ」から探せるため、登場人物の気持ちを別の角度で描写したいときにも使えます。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/ekayell/" target="_blank" rel="noopener">EkaYell!を使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--kouseieasy)">KouseiEasy</h3>
+            <div class="tool-kana">校正イージー</div>
+            <div class="tool-purpose">書き上げた原稿を、提出や入稿の前に確認したいときに。</div>
+            <p class="tool-detail">自分に必要な校正項目を選び、ワンクリックで原稿を確認するための補助ツールです。最初からすべてを直そうとせず、気になる項目に絞って見直せます。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/kouseieasy/" target="_blank" rel="noopener">KouseiEasyを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--rakunovel)">RakuNovel</h3>
+            <div class="tool-kana">ラクノーベル</div>
+            <div class="tool-purpose">小説本文を、本らしい縦書きPDFへ整えたいときに。</div>
+            <p class="tool-detail">文章を入力して設定を選ぶと、縦書きのPDFを作れます。書くことに集中したあと、組版やPDFづくりで止まりにくくするための小説制作ツールです。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/rakunovel/" target="_blank" rel="noopener">RakuNovelを詳しく見る →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--rakunovelcover)">RakuNovelCover</h3>
+            <div class="tool-kana">ラクノーベルカバー</div>
+            <div class="tool-purpose">同人小説の表紙を、自分で手早く用意したいときに。</div>
+            <p class="tool-detail">タイトルなどの必要な情報を入れて、小説向けの表紙を作るツールです。デザイン作業に慣れていなくても、本文と一緒に本の形へ近づけられます。</p>
+            <a class="tool-cta" href="https://rakunovel-cover.vercel.app/" target="_blank" rel="noopener">RakuNovelCoverを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--schedulex)">SchedulEX</h3>
+            <div class="tool-kana">〆スケ</div>
+            <div class="tool-purpose">依頼や制作の締切を、頭の中だけで管理したくないときに。</div>
+            <p class="tool-detail">複数の納期や〆切を、期限が近い順に確認できます。イラスト、デザイン、ハンドメイドなど、並行する制作の「いつまでだっけ」を減らします。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/shimesuke/" target="_blank" rel="noopener">SchedulEXを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--rakutto)">Rakutto!</h3>
+            <div class="tool-kana">らくっと！</div>
+            <div class="tool-purpose">即売会の在庫と会計を、ひとつの画面で扱いたいときに。</div>
+            <p class="tool-detail">作品の在庫管理とレジ操作をまとめた、即売会向けのアプリです。当日の販売で、数を数えることや記録することに使う負担を減らします。</p>
+            <a class="tool-cta" href="https://rakutto.vercel.app/" target="_blank" rel="noopener">Rakutto!を使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--easyreply)">EasyReply</h3>
+            <div class="tool-kana">ラクリプ</div>
+            <div class="tool-purpose">依頼の返信を、毎回ゼロから考えるのが大変なときに。</div>
+            <p class="tool-detail">受諾、確認、お断り、振込連絡など、クリエイターがよく使う返信を管理できます。定型文をそのまま送るのではなく、自分の言葉へ整えるための土台として使えます。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/easyreply/" target="_blank" rel="noopener">EasyReplyを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--kisyotenketool)">Kisyotenketool</h3>
+            <div class="tool-kana">きしょうてんけつーる</div>
+            <div class="tool-purpose">4コマや短い漫画の流れを、まず言葉で整理したいときに。</div>
+            <p class="tool-detail">セリフや出来事を、起・承・転・結の欄へ分けてメモできます。ネームを描き始める前に、話の順序やオチまでの流れを小さく組み立てられます。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/kisyotenketool/" target="_blank" rel="noopener">Kisyotenketoolを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--through)">RakuThrough</h3>
+            <div class="tool-kana">ラクスルー</div>
+            <div class="tool-purpose">創作活動のお金を整理し、確定申告の準備を始めたいときに。</div>
+            <p class="tool-detail">同人、ハンドメイド、VTuberなどの活動で発生した収入と支出を記録できます。帳簿に慣れていなくても入力を始めやすく、申告準備に使えるCSVへまとめられます。</p>
+            <a class="tool-cta" href="https://mimilyappdev.github.io/rakuthrough/" target="_blank" rel="noopener">RakuThroughを使ってみる →</a>
+          </article>
+        </div>
+        <p class="coming-note">MiteOrder（ポートフォリオ＋料金表＋見積アプリ）は制作中です。</p>
+      </div>
+
+      <div class="tool-group minit">
+        <h3 class="tool-group-title">Minit Series</h3>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--minitcare)">MinitCare</h3>
+            <div class="tool-kana">ミニっとケア</div>
+            <div class="tool-purpose">作業が終わっても頭が切り替わらず、休みに入りにくい夜に。</div>
+            <p class="tool-detail">道具を使わず、指だけでできる頭皮・顔・首のセルフマッサージを自動タイマーで案内します。長い手順を覚えなくても、3〜8分のケアを始められます。</p>
+            <a class="tool-cta" href="https://mimitday.github.io/minitcare/" target="_blank" rel="noopener">MinitCareを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--minitstretch)">MinitStretch</h3>
+            <div class="tool-kana">ミニっとストレッチ</div>
+            <div class="tool-purpose">頭も身体も限界だけれど、少しだけ動いて戻したいときに。</div>
+            <p class="tool-detail">短いストレッチを画面に沿って進めるためのガイドです。たくさん頑張るためではなく、疲れた日に3分だけ身体を動かす入口を作ります。</p>
+            <a class="tool-cta" href="https://mimitday.github.io/minitstretch/" target="_blank" rel="noopener">MinitStretchを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--smallpump)">SmallPump</h3>
+            <div class="tool-kana">スモールパンプ</div>
+            <div class="tool-purpose">筋トレを続けたいのに、きちんとやろうとして止まってしまうときに。</div>
+            <p class="tool-detail">30秒や1回だけでも記録できる、プレッシャーを増やしにくい筋トレログです。十分に動けない日も、小さく続けたことを残せます。</p>
+            <a class="tool-cta" href="https://mimitday.github.io/smallpump/" target="_blank" rel="noopener">SmallPumpを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--cozypost)">CozyPost</h3>
+            <div class="tool-kana">コージーポスト</div>
+            <div class="tool-purpose">考えが多すぎて整理できず、いったん頭の外へ置きたいときに。</div>
+            <p class="tool-detail">タイトルやカテゴリを決めず、今の気持ちをそのまま書けるプライベートメモです。きれいにまとめることより、思考を安全に置くことを優先しています。</p>
+            <a class="tool-cta" href="https://mimitday.github.io/cozypost/" target="_blank" rel="noopener">CozyPostを使ってみる →</a>
+          </article>
+          <article class="tool-card">
+            <h3 class="tool-name" style="color:var(--stylishdiet)">THE EDIT</h3>
+            <div class="tool-kana">ザ・エディット</div>
+            <div class="tool-purpose">ダイエットの記録を、気分が上がる画面で続けたい人のために。</div>
+            <p class="tool-detail">ハイブランド雑誌のような世界観で、自分を責めすぎずに取り組むダイエットアプリとして制作しています。現在は公開準備中です。</p>
+            <a class="tool-cta" href="https://mimitday.github.io/stylishdiet/" target="_blank" rel="noopener">THE EDITのページを見る →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-label">DESIGN POLICY</p>
+      <h2>考えることを、増やしすぎない。</h2>
+      <p>機能が多ければ便利になるとは限りません。選択肢が増えすぎると、どこから始めればよいかを考える負担も増えてしまいます。そのため、最初の画面に必要な操作を集め、できるだけ短い手順で結果へたどり着けることを優先しています。</p>
+      <p>また、文章や創作物を扱うツールでは、入力した内容を外部へ送らずブラウザの中だけで処理する設計をできる限り採用しています。各ツールで扱いが異なる場合は、その画面内で分かるように案内します。</p>
+      <div class="privacy-list">
+        <div class="privacy-item"><strong>登録しなくても試せる</strong><span>まず使ってみて、自分に合うかを確かめられる入口を大切にします。</span></div>
+        <div class="privacy-item"><strong>入力内容を大切に扱う</strong><span>原稿やメモの送信・保存が必要かどうかを考え、不要な通信を増やしません。</span></div>
+        <div class="privacy-item"><strong>小さく、継続して改善する</strong><span>実際に使ったときの迷いや困りごとを見つけ、必要な部分から少しずつ直していきます。</span></div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>ひとりで作り、少しずつ育てています。</h2>
+      <p>すべての人に合う大きなサービスではなく、今困っているひとりに届く小さな道具を目指しています。使いにくかったところや、こんな道具がほしいという声があれば、お問い合わせから教えてください。</p>
+      <a class="button" href="https://forms.gle/JmaTubGR56G9V8S89" target="_blank" rel="noopener">お問い合わせ →</a>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-logo">MimilyAppDev</span>
+    <div class="footer-links">
+      <a href="./index.html" class="footer-link">ツール一覧</a>
+      <a href="./guides/" class="footer-link">創作支援ガイド</a>
+      <a href="./legal/privacy.html" class="footer-link">プライバシーポリシー</a>
+      <a href="./legal/terms.html" class="footer-link">利用規約</a>
+      <a href="https://x.com/mimilydesign" target="_blank" rel="noopener" class="footer-link">X (@mimilydesign)</a>
+      <a href="https://note.com/mimilydesign" target="_blank" rel="noopener" class="footer-link">開発日記 (note)</a>
+    </div>
+    <span class="footer-copy">© 2026 Mimily / アイウィル</span>
+  </footer>
+</body>
+</html>

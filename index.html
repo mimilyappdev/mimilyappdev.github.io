@@ -74,6 +74,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#9FC7D8;border-bo
 .hero-copy .m{color:var(--minit)}
 .hero-sub{font-size:clamp(13px,1.6vw,15px);color:var(--text-light);line-height:1.9;margin-bottom:20px}
 .hero-thought{font-size:clamp(13px,1.6vw,15px);color:var(--text-light);line-height:1.9;margin-bottom:40px}
+.hero-about-link{display:inline-flex;align-items:center;margin-left:8px;color:var(--raku);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(70,130,180,.35);transition:.15s}
+.hero-about-link:hover{color:#315f86;border-bottom-color:#315f86}
 .hero-series{display:flex;flex-wrap:wrap;gap:12px}
 .series-btn{display:flex;align-items:center;gap:12px;padding:15px 20px;background:var(--panel-bg);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:inherit;transition:.2s}
 .series-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.08)}
@@ -182,7 +184,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
     <p class="hero-thought">
       開いた瞬間、直感的に操作ができる。<br>
       見ただけでわかるような、<br>
-      そんなアプリをひとりで作ってます。
+      そんなアプリをひとりで作ってます。<a class="hero-about-link" href="./about.html">MimilyAppDevとは？ →</a><a class="hero-about-link" href="./guides/">創作支援ガイド →</a>
     </p>
     <div class="hero-series">
       <a class="series-btn raku" href="#raku">
@@ -370,10 +372,27 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
   </div>
 </section>
 
+<section id="guides" class="sec bg-cream">
+  <div class="fade-in">
+    <div class="section-label r">Creator Guides</div>
+    <h2 class="section-title">創作まわりの困りごとを、<br>少しずつ整理する。</h2>
+    <p class="section-copy">小説PDF、表紙づくり、即売会、依頼返信、締切管理。ツールを使う前に知っておくと楽になる考え方をまとめています。</p>
+    <a class="series-card" href="./guides/" style="max-width:520px">
+      <div class="series-rect" style="background:var(--raku)"></div>
+      <div class="series-card-body">
+        <p class="series-card-name" style="color:var(--raku)">創作支援ガイド</p>
+        <p class="series-card-kana">MimilyAppDev Guides</p>
+        <p class="series-card-desc">作業の前に迷いやすいところを、短い読みものとして整理しています。</p>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">MimilyAppDev</span>
   <div class="footer-links">
+    <a href="./guides/" class="footer-link">創作支援ガイド</a>
     <a href="./legal/privacy.html" class="footer-link">プライバシーポリシー</a>
     <a href="./legal/terms.html" class="footer-link">利用規約</a>
     <a href="./legal/tokushoho.html" class="footer-link">特定商取引法</a>
