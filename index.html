@@ -33,7 +33,7 @@
   --schedulex:#2E3460;
   --kouseieasy:#C0504D;
   --ekayell:#3d8b5f;
-  --kotobazaar:#243B5A;
+  --kotobazaar:#C6AF5F;
   --kisyotenketool:#6C4AB6;
   --cozypost:#7A5040;
   --minitstretch:#DDA83E;
@@ -84,22 +84,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#9FC7D8;border-bo
 .series-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.08)}
 .series-btn.raku:hover{border-color:rgba(26,122,90,0.45)}
 .series-btn.minit:hover{border-color:rgba(107,95,204,0.45)}
+.series-btn.design:hover{border-color:rgba(140,107,71,0.45)}
 .sdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 .sdot.r{background:var(--raku)}
 .sdot.m{background:var(--minit)}
+.sdot.d{background:#8C6B47}
 .s-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;letter-spacing:-.3px;line-height:1;margin-bottom:3px}
 .s-name.r{color:var(--raku)}
 .s-name.m{color:var(--minit)}
+.s-name.d{color:#8C6B47}
 .s-desc{font-size:11px;color:var(--text-light);font-weight:700}
 .s-arr{margin-left:4px;font-size:13px;color:var(--sub)}
 
 /* ── HERO VISUAL ── */
 .hero-visual{display:none;position:relative;flex-shrink:0;z-index:1}
 @media(min-width:880px){.hero-visual{display:block}}
-.vis-wrap{position:relative;width:248px;height:320px}
+.vis-wrap{position:relative;width:248px;height:560px}
 .vis-card{position:absolute;width:210px;border-radius:18px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,0.16)}
 .vis-card.vc-raku{background:#4682B4;top:0;left:0;z-index:2;transform:rotate(-3deg)}
-.vis-card.vc-minit{background:#9FC7D8;bottom:0;right:0;z-index:1;transform:rotate(3deg);color:#1A3A52;}
+.vis-card.vc-minit{background:#9FC7D8;top:190px;right:0;z-index:1;transform:rotate(3deg);color:#1A3A52;}
+.vis-card.vc-design{background:#EDE3D1;top:375px;left:6px;z-index:0;transform:rotate(-2deg)}
 .vc-label{font-family:'Nunito',sans-serif;font-weight:900;font-size:30px;color:rgba(255,255,255,.92);letter-spacing:-1px;line-height:1;margin-bottom:2px}
 .vc-sub{font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.45);margin-bottom:14px}
 .vc-item{font-size:11px;font-weight:700;color:rgba(255,255,255,.72);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -206,6 +210,14 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
         </div>
         <span class="s-arr">→</span>
       </a>
+      <a class="series-btn design" href="https://mimily7.booth.pm/" target="_blank" rel="noopener">
+        <span class="sdot d"></span>
+        <div>
+          <div class="s-name d">Design Order</div>
+          <div class="s-desc">貴方の作りたいを、カタチに</div>
+        </div>
+        <span class="s-arr">→</span>
+      </a>
     </div>
   </div>
 
@@ -225,6 +237,13 @@ footer{background:#fff;border-top:1px solid var(--border);padding:36px clamp(16p
         <div class="vc-item" style="color:#1A3A52;border-bottom-color:rgba(26,58,82,0.18);">cozypost</div>
         <div class="vc-item" style="color:#1A3A52;border-bottom-color:rgba(26,58,82,0.18);">minitstretch</div>
         <div class="vc-item" style="color:#1A3A52;border-bottom:none;">minitcare</div>
+      </div>
+      <div class="vis-card vc-design">
+        <div class="vc-label" style="color:#4A3A28;font-size:26px;">Design Order</div>
+        <div class="vc-sub" style="color:rgba(74,58,40,0.55);">ORDER YOUR BOOK DESIGN</div>
+        <div class="vc-item" style="color:#75614A;border-bottom-color:rgba(74,58,40,0.15);">あなたの一冊をデザインします</div>
+        <div class="vc-item" style="color:#75614A;border-bottom-color:rgba(74,58,40,0.15);">表紙イラスト</div>
+        <div class="vc-item" style="color:#75614A;border-bottom:none;">装丁・本文デザイン</div>
       </div>
     </div>
   </div>
