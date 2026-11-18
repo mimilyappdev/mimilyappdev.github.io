@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>AntholoEasy ファビコン（D2・文字なし）</title>
+  <rect width="64" height="64" rx="14" fill="#1F7A99"/>
+  <g transform="translate(32 3) scale(0.95) translate(-32 0)">
+    <g fill="#fff" stroke="#1F7A99" stroke-width="2.4" stroke-linejoin="round">
+      <path d="M32 24 C25 19 15 18 6 20 V52 C15 50 25 51 32 56 Z"/>
+      <path d="M32 24 C39 19 49 18 58 20 V52 C49 50 39 51 32 56 Z"/>
+    </g>
+    <g stroke="#1F7A99" stroke-width="2.6" stroke-linecap="round">
+      <path d="M11 30 H26 M11 37 H26 M11 44 H22"/>
+      <path d="M38 30 H53 M38 37 H53 M42 44 H53"/>
+    </g>
+    <path d="M32 2 Q32 12 42 12 Q32 12 32 22 Q32 12 22 12 Q32 12 32 2 Z" fill="#F4C76A"/>
+  </g>
+</svg>

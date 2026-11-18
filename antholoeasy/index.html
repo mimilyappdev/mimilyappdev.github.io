@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Mimily analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y1QD7RYSJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7Y1QD7RYSJ',{site_id:'antholoeasy_lp'});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1F7A99">
+<title>アンソロイージー（AntholoEasy Astra）— 同人アンソロジーの台割・入稿チェックツール</title>
+<meta name="description" content="同人アンソロジーの台割・原稿チェック・ノンブル入り入稿データ作成を、ひとつの画面で。作家ごとのフォルダーを読み込んで並べるだけ。Windows用、早期アクセス版2,980円（税込）、正式版5,980円（予定）。無料の体験版あり。">
+<link rel="canonical" href="https://mimilyappdev.github.io/antholoeasy/">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="アンソロイージー（AntholoEasy Astra）— 台割と入稿チェックを、ひとつの画面で。">
+<meta property="og:description" content="同人アンソロジーの台割・原稿チェック・ノンブル入り入稿データ作成ツール。Windows用、無料の体験版あり。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mimilyappdev.github.io/antholoeasy/">
+<meta property="og:image" content="https://mimilyappdev.github.io/antholoeasy/img/shot_dock.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&family=Kaisei+Opti:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --head:'Kaisei Opti',serif; --body:'Zen Kaku Gothic New',sans-serif; --hw:500;
+  --bg:#F5F1EB; --bg-alt:#EDE8E0; --surface:#FFFFFF;
+  --ink:#2A2620; --muted:#7A7468;
+  /* テーマカラー＝ロゴの青緑。金はロゴの星から */
+  --main:#1F7A99; --main-dk:#14536B; --main-lt:#E3F0F4; --light:#6FAFC4;
+  --gold:#A97C1F; --star:#F4C76A; --border:#DDD5C8; --border-dk:#C0B8AE;
+  /* 台割の色帯（アプリのサンプルと同じ並び） */
+  --w1:#6F86A6; --w2:#7E9A62; --w3:#A87A8C; --w4:#8678AE; --blank:#E4E0D8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+header{position:sticky;top:0;z-index:10;background:rgba(245,241,235,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:60px;padding:0 48px;display:flex;align-items:center;justify-content:space-between}
+.hd-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:19px;color:var(--main);letter-spacing:.01em}
+.hd-logo img{width:28px;height:28px}
+.hd-right{display:flex;align-items:center;gap:28px}
+.btn-nav{padding:8px 20px;background:var(--main);color:#fff;border-radius:8px;font-size:13px;font-weight:700}
+.btn-nav:hover{background:var(--main-dk)}
+.hd-logo small{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-left:6px}
+.hd-kana{font-size:11px;color:var(--muted);margin-left:10px}
+.hd-nav{display:flex;gap:28px;font-size:13px;color:var(--muted)}
+.hd-nav a:hover{color:var(--main)}
+
+.hero{max-width:1160px;margin:0 auto;padding:88px 48px 72px;display:grid;grid-template-columns:5fr 6fr;gap:56px;align-items:center}
+.eyebrow{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:18px}
+h1{font-family:var(--head);font-weight:var(--hw);font-size:38px;line-height:1.5;color:var(--main);margin-bottom:22px}
+.hero-desc{font-size:15px;color:var(--muted);line-height:1.95;margin-bottom:32px}
+.price-line{font-size:13px;color:var(--ink);margin-bottom:22px}
+.price-line b{font-family:var(--head);font-size:26px;color:var(--main);font-weight:500;margin:0 2px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;border:2px solid var(--main)}
+.btn.fill{background:var(--main);color:#fff}
+.btn.fill:hover{background:var(--main-dk);border-color:var(--main-dk)}
+.btn.line{color:var(--main)}
+.btn.line:hover{background:var(--main-lt)}
+.btn small{font-weight:500;font-size:11px;margin-left:6px;opacity:.75}
+.shot{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:6px;box-shadow:0 14px 44px rgba(46,42,38,.12);transform:rotate(-1deg)}
+.shot img{border-radius:6px}
+.cap{font-size:11px;color:var(--muted);margin-top:12px;text-align:right}
+
+/* 台割の帯：ページの目印 */
+.pagemap{max-width:1160px;margin:0 auto;padding:0 48px}
+.pm-row{display:flex;height:46px;border-radius:4px;overflow:hidden;border:1px solid var(--border-dk)}
+.pm{color:#fff;font-size:11px;line-height:1.3;padding:6px 10px;white-space:nowrap;overflow:hidden}
+.pm b{display:block;font-size:12px}
+.pm.blank{background:var(--blank);color:var(--muted);background-image:repeating-linear-gradient(135deg,transparent 0 6px,rgba(0,0,0,.04) 6px 7px)}
+.pm-scale{display:flex;justify-content:space-between;font-size:10px;color:var(--border-dk);margin-top:6px;font-variant-numeric:tabular-nums}
+
+section{padding:96px 48px}
+.inner{max-width:1060px;margin:0 auto}
+.sec-no{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:10px}
+.sec-title{font-family:var(--head);font-weight:var(--hw);font-size:32px;color:var(--main);line-height:1.5;margin-bottom:14px}
+.sec-lead{font-size:14px;color:var(--muted);margin-bottom:44px;max-width:640px}
+
+/* 対比表 */
+.alt{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.vs{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--border)}
+.vs th{font-size:12px;font-weight:700;text-align:left;padding:14px 20px;border-bottom:2px solid var(--main);color:var(--muted)}
+.vs th.now{color:var(--main)}
+.vs td{padding:20px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.85}
+.vs td.task{width:18%;font-weight:700;color:var(--main);white-space:nowrap}
+.vs td.before{width:32%;color:var(--muted)}
+.vs td.before s{text-decoration-color:var(--border-dk)}
+.vs td.after small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+
+/* 機能 */
+.feat{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;padding:56px 0;border-top:1px solid var(--border)}
+.feat:first-of-type{border-top:none}
+.feat.rev{grid-template-columns:1.25fr 1fr}
+.feat.rev .feat-text{order:2}
+.feat h3{font-family:var(--head);font-weight:var(--hw);font-size:24px;color:var(--main);line-height:1.55;margin-bottom:14px}
+.feat p{font-size:14px;color:var(--muted);line-height:1.95}
+.feat ul{margin-top:14px;list-style:none;font-size:13px}
+.feat li{padding:6px 0 6px 16px;border-bottom:1px dashed var(--border);position:relative}
+.feat li::before{content:'';position:absolute;left:0;top:15px;width:7px;height:1px;background:var(--gold)}
+.crop{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff}
+.crop img{width:180%;max-width:none}
+.warn{background:#fff;border:1px solid var(--border);border-radius:8px;font-size:13px}
+.warn div{padding:14px 18px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:44px 1fr;gap:10px}
+.warn div:last-child{border-bottom:none}
+.warn .lv{font-size:11px;font-weight:700;padding-top:2px}
+.warn .e{color:#B23A3A}.warn .w{color:var(--gold)}
+.warn b{display:block;font-size:12px;color:var(--ink)}
+.warn span{color:var(--muted)}
+.tree{font-family:ui-monospace,Consolas,monospace;font-size:13px;line-height:2;background:#fff;border:1px solid var(--border);border-radius:8px;padding:22px 26px;color:var(--ink);white-space:pre}
+.tree i{font-style:normal;color:var(--muted)}
+
+/* 価格 */
+.price{background:var(--main);color:#fff}
+.price .sec-no{color:var(--star)}
+.price .sec-title{color:#fff}
+.price .sec-lead{color:rgba(255,255,255,.75)}
+.price{background:var(--main)}
+.plan .yen{color:#fff}
+.plans{display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:10px;overflow:hidden}
+.plan{padding:32px}
+.plan+.plan{background:#fff;color:var(--ink)}
+.plan .nm{font-size:12px;font-weight:700;letter-spacing:.08em;opacity:.7;margin-bottom:8px}
+.plan .yen{font-family:var(--head);font-size:40px;line-height:1.1}
+.plan+.plan .yen{color:var(--main)}
+.plan .yen small{font-family:var(--body);font-size:13px;margin-left:6px;opacity:.7}
+.plan ul{list-style:none;margin:20px 0 26px;font-size:13px;line-height:1.8}
+.plan li{padding:4px 0}
+.plan .btn.inv{border-color:rgba(255,255,255,.5);color:#fff}
+.plan .btn.inv:hover{background:rgba(255,255,255,.1)}
+
+/* 動作環境 */
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+dl.tbl{font-size:13px;border-top:1px solid var(--border)}
+dl.tbl div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+dl.tbl dt{font-weight:700;color:var(--main)}
+.notes{font-size:13px;color:var(--muted);list-style:none}
+.notes li{padding:8px 0;border-bottom:1px solid var(--border)}
+.notes h4{font-size:13px;color:var(--ink);margin-bottom:6px}
+
+.fcta{text-align:center;padding:96px 48px}
+.fcta h2{font-family:var(--head);font-weight:var(--hw);font-size:36px;color:var(--main);line-height:1.5;margin-bottom:16px}
+.fcta p{color:var(--muted);font-size:14px;margin-bottom:32px}
+.fcta .cta{justify-content:center}
+footer{border-top:1px solid var(--border);padding:28px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted)}
+footer a:hover{color:var(--main)}
+footer .links{display:flex;gap:20px}
+
+@media (max-width:820px){
+  header{padding:0 16px}.hd-nav{display:none}
+  .hero{grid-template-columns:1fr;padding:56px 16px 48px;gap:36px}
+  h1{font-size:28px}
+  .pagemap{padding:0 16px}.pm-row{height:40px}.pm:nth-child(n+5){display:none}
+  section{padding:64px 16px}
+  .sec-title{font-size:26px}
+  .vs th{display:none}.vs,.vs tbody,.vs tr,.vs td{display:block;width:100%!important}
+  .vs td{padding:10px 16px;border-bottom:none}.vs td.task{padding-top:18px}.vs tr{border-bottom:1px solid var(--border)}
+  .vs td.before::before{content:'これまで　';font-size:11px;font-weight:700}
+  .feat,.feat.rev{grid-template-columns:1fr;gap:24px}
+  .feat.rev .feat-text{order:0}
+  .tree{font-size:11px;padding:16px;overflow-x:auto}
+  .plans,.spec{grid-template-columns:1fr}
+  .fcta{padding:64px 16px}.fcta h2{font-size:26px}
+  footer{padding:24px 16px}
+}
+.vis{background:var(--main-lt);border:1px solid var(--border);border-radius:14px;padding:22px}
+.feat-eye{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--light);margin-bottom:10px}
+/* A3：ヘッダーをテーマカラーにして文字は白 */
+header{background:var(--main);border-bottom:none;backdrop-filter:none;box-shadow:0 1px 0 rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06)}
+.hd-logo{color:#fff}
+.hd-logo img{box-shadow:0 0 0 1.5px rgba(255,255,255,.85);border-radius:7px}
+.hd-logo small{color:var(--star)}
+.hd-kana{color:rgba(255,255,255,.75)}
+.hd-nav{color:rgba(255,255,255,.85)}
+.hd-nav a:hover{color:#fff}
+.btn-nav{background:#fff;color:var(--main)}
+.btn-nav:hover{background:var(--main-lt)}
+/* A4：ロゴの英字をSchedulEX・EasyReplyと同じ Tilt Warp に */
+.hd-logo{font-family:'Tilt Warp',cursive;font-weight:400;font-size:22px;letter-spacing:0}
+.hd-logo small,.hd-kana{font-family:var(--body);font-weight:700}
+@media (max-width:820px){
+  .hd-kana,.hd-logo small{display:none}
+  .btn-nav{padding:6px 12px;font-size:12px}
+  .hero > div{min-width:0}
+}
+.price-line .later{display:inline-block;margin-left:12px;padding-left:12px;border-left:1px solid var(--border-dk);color:var(--muted)}
+.later-plan{font-size:13px;color:var(--muted);margin-top:6px}
+@media (max-width:820px){.price-line .later{display:block;margin:4px 0 0;padding:0;border:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="hd-logo" href="./"><img src="img/favicon.svg" alt="">AntholoEasy<small>ASTRA</small><span class="hd-kana">アンソロイージー</span></a>
+  <div class="hd-right"><nav class="hd-nav"><a href="#features">できること</a><a href="#price">価格</a><a href="#spec">動作環境</a></nav><a class="btn-nav" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">BOOTHで見る →</a></div>
+</header>
+
+<div class="hero">
+  <div>
+    <p class="eyebrow">アンソロジー主催者向け　早期アクセス版 0.9.2・Windows用</p>
+    <h1>台割と入稿チェックを、<br>ひとつの画面で。</h1>
+    <p class="hero-desc">作家ごとのフォルダーを読み込んで、作品を並べるだけ。PSD・TIFF・PDFが混ざっていても寸法や解像度を確かめ、ノンブル入りの入稿用フォルダーまで作ります。</p>
+    <p class="price-line">早期アクセス版<b>2,980円</b>（税込）・買い切り<span class="later">正式版 5,980円（予定）</span></p>
+    <div class="cta">
+      <a class="btn fill" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">BOOTHで購入する</a>
+      <a class="btn line" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">無料の体験版<small>24ページまで</small></a>
+    </div>
+  </div>
+  <div>
+    <div class="shot"><img src="img/shot_dock.png" alt="アンソロイージーの画面。中央に台割、左に作品一覧、右に作品の情報と警告"></div>
+    <p class="cap">画面はサンプルデータです。真ん中の台割は固定で、まわりのパネルは動かせます。</p>
+  </div>
+</div>
+
+<div class="pagemap" aria-hidden="true">
+  <div class="pm-row">
+    <div class="pm blank" style="flex:2">P1–2<b>白紙</b></div>
+    <div class="pm" style="flex:12;background:var(--w1)">P3–14<b>澄川ゆき「送り火」</b></div>
+    <div class="pm" style="flex:10;background:var(--w2)">P15–24<b>一ノ瀬環「約束の階」</b></div>
+    <div class="pm blank" style="flex:2">P25–26<b>白紙</b></div>
+    <div class="pm" style="flex:8;background:var(--w3)">P27–34<b>白岡さち「昼のよる」</b></div>
+    <div class="pm" style="flex:6;background:var(--w4)">P35–40<b>灰谷るか</b></div>
+  </div>
+  <div class="pm-scale"><span>P1</span><span>本文 40ページ・B5・右綴じ</span><span>P40</span></div>
+</div>
+
+<section class="alt" style="margin-top:72px">
+  <div class="inner">
+    <p class="sec-no">01</p>
+    <h2 class="sec-title">主催の「確認と組み直し」を減らす</h2>
+    <p class="sec-lead">原稿を開いて、並べて、番号を振って、また確認する。その往復をアプリにまかせます。</p>
+    <table class="vs">
+      <thead><tr><th></th><th>これまで</th><th class="now">アンソロイージーでは</th></tr></thead>
+      <tbody>
+        <tr><td class="task">原稿の読み込み</td><td class="before">1本ずつ開いて、統合してペースト</td><td class="after">作家ごとのフォルダーをまとめて読み込み<small>PSD・TIFF・PDFは、ノンブルを入れない場合は元の形式のまま収録</small></td></tr>
+        <tr><td class="task">台割</td><td class="before">スプレッドシートで別に管理</td><td class="after">作品のかたまりごとにドラッグで並べ替え<small>奇数始まりなどの指定に合わない位置は赤で知らせます</small></td></tr>
+        <tr><td class="task">入稿前の確認</td><td class="before">サイズ違い・解像度不足を目で探す</td><td class="after">寸法・解像度・階調・フォント埋め込みを自動で確認<small>問題のあるページを一覧にし、クリックでそのページへ移動</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="features">
+  <div class="inner">
+    <p class="sec-no">02</p>
+    <h2 class="sec-title">できること</h2>
+
+    <div class="feat">
+      <div class="feat-text">
+        <p class="feat-eye">Feature 01 — 警告</p>
+        <h3>警告は、ページの場所といっしょに。</h3>
+        <p>判型の違い、解像度の不足、レイヤーの未統合。印刷所で止まりやすい点を、作品名とページ番号つきで並べます。</p>
+      </div>
+      <div class="vis"><div class="warn">
+        <div><span class="lv e">エラー</span><p><b>白岡さち「昼のよる」　P30</b><span>グレースケールのまま統合されています。</span></p></div>
+        <div><span class="lv e">エラー</span><p><b>東雲すばる「銀糸の夜」（未配置）</b><span>判型がA5になっています。B5で統一してください。</span></p></div>
+        <div><span class="lv w">注意</span><p><b>澄川ゆき「送り火」　P7</b><span>解像度が350dpiです。印刷所の指定を確認してください。</span></p></div>
+      </div></div>
+    </div>
+
+    <div class="feat rev">
+      <div class="feat-text">
+        <p class="feat-eye">Feature 02 — パネルと配置</p>
+        <h3>まわりのパネルは、<br>使いやすい位置へ。</h3>
+        <p>台割は真ん中に固定。作品一覧・警告・原稿・ノンブルのパネルは、タブをドラッグして好きな場所に動かせます。並べ方は名前をつけて保存し、作業ごとに呼び出せます。</p>
+        <ul><li>「チェック用」「並べ替え用」など、配置を名前で保存</li><li>左右の入れ替え、最初の配置に戻すもメニューから</li></ul>
+      </div>
+      <div class="vis"><div class="crop"><img src="img/shot_workspace.png" alt="表示メニューから配置を保存・呼び出す画面"></div></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-text">
+        <p class="feat-eye">Feature 03 — ノンブルと出力</p>
+        <h3>ノンブルは白紙ページまで、<br>同じ規則で。</h3>
+        <p>通常ノンブル・隠しノンブルを、作品にも白紙にも入れます。モノクロ2値は2値のまま、グレースケールはグレースケールのまま、劣化しないLZW圧縮TIFFで出力。元原稿は上書きしません。</p>
+      </div>
+      <div class="vis"><div class="tree">AntholoEasy_output_日時/
+├ manuscripts/      <i>001_作家_作品.tif …</i>
+├ preview_check.pdf <i>主催確認用PDF</i>
+├ daiwari.csv       <i>台割</i>
+├ check_result.txt  <i>チェック結果</i>
+└ export_log.json   <i>出力ログ</i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="inner">
+    <p class="sec-no">03</p>
+    <h2 class="sec-title">価格</h2>
+    <p class="sec-lead">まず体験版で、手元の原稿とPCで動くかを確かめてください。</p>
+    <div class="plans">
+      <div class="plan">
+        <p class="nm">体験版</p>
+        <p class="yen">無料</p>
+        <ul><li>読み込み・台割・ノンブル設定・チェックまで製品版と同じ画面</li><li>本文24ページまで、透かし入りのお試しPDFを出力</li></ul>
+        <a class="btn inv" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">体験版をダウンロード</a>
+      </div>
+      <div class="plan">
+        <p class="nm">早期アクセス版</p>
+        <p class="yen">2,980円<small>税込・買い切り</small></p>
+        <p class="later-plan">正式版 5,980円（予定）</p>
+        <ul><li>本文300ページまで、入稿用データを出力</li><li>正式版を含む今後のアップデートを追加料金なしでダウンロード</li></ul>
+        <a class="btn fill" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">BOOTHで購入する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="spec">
+  <div class="inner">
+    <p class="sec-no">04</p>
+    <h2 class="sec-title">動作環境と、ご購入前に</h2>
+    <div class="spec" style="margin-top:32px">
+      <dl class="tbl">
+        <div><dt>OS</dt><dd>Windows 10／11</dd></div>
+        <div><dt>ブラウザ</dt><dd>Microsoft Edge または Google Chrome</dd></div>
+        <div><dt>インストール</dt><dd>不要。ZIPを展開して起動バッチをダブルクリック</dd></div>
+        <div><dt>判型</dt><dd>B5／A5、塗り足し3mm／5mm、右綴じ／左綴じ、本文300ページまで</dd></div>
+        <div><dt>原稿形式</dt><dd>PSD、非圧縮TIFF、PDF、PNG（非推奨）。600dpi以上のグレースケールまたはモノクロ2値</dd></div>
+        <div><dt>データ</dt><dd>外部サーバーへ送らず、PCの中で処理します</dd></div>
+      </dl>
+      <ul class="notes">
+        <li><h4>対応していないもの</h4>カラー原稿（口絵など）、AI形式、LZWなどの圧縮TIFF、フォント未埋め込みのPDF</li>
+        <li><h4>起動時の警告</h4>起動用ファイルにデジタル署名がないため、Windowsの警告が出ます。避け方は同梱の説明書にあります</li>
+        <li><h4>サポート</h4>不具合で作業が進められない場合のみ、BOOTHのメッセージで受け付けます</li>
+        <li><h4>返金</h4>ダウンロード販売のため、お客様のご都合による返金はお受けできません</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="fcta" style="background:var(--bg-alt);border-top:1px solid var(--border)">
+  <h2>次の締切の台割から、<br>使ってみてください。</h2>
+  <p>体験版でも、手元の原稿を並べるところまで試せます。</p>
+  <div class="cta">
+    <a class="btn fill" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">BOOTHで購入する<small>2,980円</small></a>
+    <a class="btn line" href="https://booth.pm/ja/items/9150319" target="_blank" rel="noopener">無料の体験版</a>
+  </div>
+</div>
+
+<footer>
+  <span>AntholoEasy Astra 早期アクセス版 0.9.2 ／ 販売：Mimily（BOOTH）</span>
+  <span class="links"><a href="../">MimilyAppDev</a><a href="../legal/privacy.html">プライバシーポリシー</a></span>
+</footer>
+</body>
+</html>
